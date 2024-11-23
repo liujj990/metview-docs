@@ -4,6 +4,10 @@ build:
   os: "ubuntu-22.04"
   tools:
     python: "3.9"
+sphinx:
+  configuration: docs/conf.py
+  # You can configure Sphinx to use a different builder, for instance use the dirhtml builder for simpler URLs
+  builder: "html"
 python:
   install:
   - requirements: docs/requirements.txt
