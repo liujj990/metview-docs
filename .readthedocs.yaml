@@ -8,13 +8,14 @@ build:
     - python -mvirtualenv $READTHEDOCS_VIRTUALENV_PATH 
     - python -m pip install --upgrade --no-cache-dir pip setuptools 
     - python -m pip install --upgrade --no-cache-dir sphinx 
-    - python -m pip install --exists-action=w --no-cache-dir -r docs/requirements.txt 
+    - python -m pip install --exists-action=w --no-cache-dir -r docs/requirements.txt
+    - cd docs
     - python -m sphinx -T -b html -d _build/doctrees -D language=en . $READTHEDOCS_OUTPUT/html 
     - python -m sphinx -T -b html -d _build/doctrees -D language=en . $READTHEDOCS_OUTPUT/htmlzip
 sphinx:
   configuration: docs/conf.py
   # You can configure Sphinx to use a different builder, for instance use the dirhtml builder for simpler URLs
-  builder: "html"
+  builder: "dirhtml"
 python:
   install:
   - requirements: docs/requirements.txt
